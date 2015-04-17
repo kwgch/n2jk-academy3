@@ -1,0 +1,6 @@
+- if user_signed_in?
+  サインインしています
+- else
+  .container.text-center
+    %h3 n2jkAcademy
+    = link_to fa_icon('github', text: "GitHubで新規登録/ログイン"), signin_path, class: "btn btn-success"

@@ -1,0 +1,24 @@
+- if post.present?
+  .user__post-container
+    .user__post-ref
+      = simple_format post.body
+      = post.updated_at
+    - if post.user == current_user
+      = link_to '#', class: 'js-post-edit' do
+        = fa_icon('pencil')
+      .user__post-edit
+        = simple_form_for([user, post], remote: true) do |f|
+          = f.error_notification
+          .form-inputs
+            = f.input :body, label: false
+            = post.updated_at
+          .form-actions
+            = f.button :submit, '更新'
+            .pull-right
+              = link_to '削除', user_post_path(user, post), remote: true, method: :delete, data: {confirm: '削除しますか？'}
+  %ul.list-group.comments
+    .user__comments-container
+      = render 'comments/index', user: user, post: post, comments: post.comments
+    %li.list-group-item
+      .user__comment-new-container
+        = render 'comments/new', user: user, post: post

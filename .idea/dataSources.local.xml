@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - n2jk-academy-3_development@localhost" uuid="87092819-ebfc-4dcf-9762-82afd559276b">
+      <secret-storage>master_key</secret-storage>
+      <schema-pattern>n2jk-academy-3_development.*</schema-pattern>
+      <default-schemas>n2jk-academy-3_development.*</default-schemas>
+    </data-source>
+  </component>
+</project>

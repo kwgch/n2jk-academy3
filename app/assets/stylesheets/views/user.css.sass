@@ -1,0 +1,60 @@
+.user-container
+  border-bottom: 1px solid $_gray
+  min-height: 70px
+  background: $_background-color
+  height: 164px
+.user
+  padding: 24px
+  height: 100%
+  background-size: cover
+
+.user__main
+  float: 2
+
+.user__header
+
+.user__body
+
+.user__name
+  margin-top: 0
+  font-size: 36px
+.user__user-icon
+  width: 40px
+  height: 40px
+  +border-radius(50%)
+  float: left
+  margin-right: 10px
+
+.user__post
+  width: 780px
+  margin: 0px auto 12px auto
+  overflow-y: scroll
+  margin: 5px
+
+.user__post-container
+  padding: 15px
+  .user__post-ref
+    display: block
+  .user__post-edit
+    display: none
+  &.is-edit
+    .user__post-ref
+      display: none
+    .user__post-edit
+      display: block
+
+.user__posts
+  overflow-y: scroll
+  flex: 0.5
+  margin: 5px
+  
+.user__comment-container
+  .user__comment-ref
+    display: block
+  .user__comment-edit
+    display: none
+  &.is-edit
+    .user__comment-ref
+      display: none
+    .user__comment-edit
+      display: block

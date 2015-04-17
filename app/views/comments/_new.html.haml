@@ -1,0 +1,6 @@
+.user__comment-new
+  = simple_form_for([user, post, post.comments.build], remote: true) do |f|
+    .form-inputs
+      = f.input :body, label: false
+    .form-actions
+      = f.button :submit, '投稿'

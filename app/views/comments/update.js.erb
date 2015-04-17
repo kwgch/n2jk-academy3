@@ -1,0 +1,5 @@
+$('.user__comment-new-container').html("<%= j render 'comments/new', user: @user, post: @post %>");
+$('.user__comments-container').html("<%= j render 'comments/index', user: @user, post: @post, comments: @post.comments %>");
+$('.js-comment-edit').click(function(){
+    $(this).closest('.user__comment-container').toggleClass('is-edit')
+})

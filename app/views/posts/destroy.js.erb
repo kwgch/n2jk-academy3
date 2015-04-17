@@ -1,0 +1,2 @@
+$('.js-user-post').html("<%= j render 'posts/show', user: @user, post: @user.posts.last %>");
+$('.js-user-posts').html("<%= j render 'posts/index', user: @user, posts: @user.posts %>");

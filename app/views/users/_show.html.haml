@@ -1,0 +1,4 @@
+.user
+  = image_tag user.image, alt: user.name, class: 'user__user-icon'
+  %h2.user__name= user.name
+  = "#{user.posts.count}件投稿"

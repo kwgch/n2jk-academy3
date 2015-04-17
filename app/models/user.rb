@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts
+  has_many :comments
 
   def self.create_by_github(auth)
     User.create!(github_id: auth[:uid],

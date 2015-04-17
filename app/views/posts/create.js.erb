@@ -1,0 +1,4 @@
+$('.js-user-post').html("<%= j render 'posts/show', user: @user, post: @post %>");
+$('.js-new-post').val('')
+$('#post-modal').modal('toggle')
+$('.js-user-posts').html("<%= j render 'posts/index', user: @user, posts: @user.posts %>");

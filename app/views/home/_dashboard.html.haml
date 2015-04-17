@@ -1,0 +1,13 @@
+.main
+  .sidebar
+    = render 'users/index', users: User.includes(:posts).order(updated_at: :desc)
+  .user__main
+    .user__header.js-user-header
+      = render 'users/show', user: current_user
+    .user__body
+      .user__post.js-user-post
+        = render 'posts/show', user: current_user, post: current_user.posts.try(:last)
+  .user__posts.js-user-posts
+    = render 'posts/index', user: current_user, posts: current_user.posts
+
+  = render 'posts/modal_form'

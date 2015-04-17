@@ -1,5 +1,5 @@
 //debugger
 $('.js-user-header').html("<%= j render 'users/show', user: @user %>");
 $('.js-user-post').html("<%= j render 'posts/show', user: @user, post: @post %>");
-$('.js-user-posts').html("<%= j render 'posts/index', user: @user, posts: @user.posts %>");
+$('.js-user-posts').html("<%= j render 'posts/index', user: @user, posts: @user.posts.order(created_at: :desc) %>");
 Academy.initComment()

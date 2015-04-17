@@ -1,4 +1,9 @@
 - posts.each do |post|
   %li
     = link_to user_post_path(user, post, :js) , remote: true do
-      = post.body
+      .posts__post-created-at
+        = l post.created_at
+      .posts__post-title
+        = post.body
+      - if post.is_unread?(current_user) || post.has_unread_comments?(current_user)
+        %span.posts__menu-unread-post-dot

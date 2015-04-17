@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_user, only: %i[create update destroy]
-  before_action :set_post, only: %i[create update destroy]
+  before_action :set_user, only: %i[create update destroy readall]
+  before_action :set_post, only: %i[create update destroy readall]
   before_action :set_comment, only: %i[show edit update destroy]
 
   # GET /comments
@@ -61,6 +61,11 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def readall
+    current_user.read(@post.comments)
+    render json: { status: 'ok' }
   end
 
   private

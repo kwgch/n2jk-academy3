@@ -11,7 +11,7 @@
           = f.error_notification
           .form-inputs
             = f.input :body, label: false
-            = post.updated_at
+            = l post.updated_at
           .form-actions
             = f.button :submit, '更新'
             .pull-right
@@ -22,3 +22,7 @@
     %li.list-group-item
       .user__comment-new-container
         = render 'comments/new', user: user, post: post
+
+:javascript
+  Academy.readPost("#{user.id}", "#{post.id}")
+  Academy.readAllComment("#{user.id}", "#{post.id}")

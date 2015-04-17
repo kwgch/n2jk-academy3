@@ -4,3 +4,5 @@
       = link_to user_path(user, :js), remote: true do
         = image_tag user.image, alt: user.name, class: 'users__user-icon'
         = user.name
+        - if user.unread_posts_for(current_user).count > 0 || user.unread_comments_for(current_user).count > 0
+          %span.posts__menu-unread-post-dot

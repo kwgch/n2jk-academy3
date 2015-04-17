@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_user, only: %i[index show create update destroy]
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[index show create update destroy read]
+  before_action :set_post, only: %i[show edit update destroy read]
   skip_before_action :verify_authenticity_token, only: [:show]
 
   # GET /posts
@@ -58,6 +58,11 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def read
+    current_user.read(@post)
+    render json: { status: 'ok' }
   end
 
   private

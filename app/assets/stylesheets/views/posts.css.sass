@@ -1,0 +1,29 @@
+.posts__post-title
+  font-size: 13px
+  color: $_dark_gray
+  &.is-active
+    font-weight: bold
+    color: $_black
+
+.posts__post-created_at
+  font-size: 11px
+  color: $_dark_gray
+
+=unread-dot
+  background-color: $_red
+  height: 10px
+  width: 10px
+  cursor: default
+  +border-radius(50%)
+
+.posts__menu-unread-post-dot
+  +unread-dot
+  display: inline-block
+
+.posts__post-unread-post-dot
+  +unread-dot
+  display: block
+  float: right
+  position: absolute
+  top: 0px
+  right: 0px

@@ -2,7 +2,14 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :posts do
-      resources :comments
+      collection do
+        patch 'read'
+      end
+      resources :comments do
+        collection do
+          patch 'readall'
+        end
+      end
     end
   end
 

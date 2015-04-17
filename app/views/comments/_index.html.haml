@@ -1,19 +1,22 @@
-- comments.each do |comment|
-  %li.list-group-item
-    .user__comment-container
-      .user__comment-ref
-        = simple_format comment.body
-        = comment.updated_at
-      - if comment.user == current_user
-        = link_to 'javascript:void(0)', class: 'js-comment-edit' do
-          = fa_icon('pencil')
-        .user__comment-edit
-          = simple_form_for([user, post, comment], remote: true) do |f|
-            .form-inputs
-              = f.input :body, label: false
-              = comment.updated_at
-            .form-actions
-              = f.button :submit, '更新'
-              .pull-right
-                = link_to '削除', user_post_comment_path(user, post, comment), remote: true, method: :delete, data: {confirm: '削除しますか？'}
+- if !comments.empty?
+  - comments.each do |comment|
+    %li.list-group-item
+      .user__comment-container
+        .user__comment-ref
+          - if comment.is_unread?(current_user)
+            %span.comments__comment-unread-comment-dot
+          = simple_format comment.body
+          = comment.created_at
+        - if comment.user == current_user
+          = link_to 'javascript:void(0)', class: 'js-comment-edit' do
+            = fa_icon('pencil')
+          .user__comment-edit
+            = simple_form_for([user, post, comment], remote: true) do |f|
+              .form-inputs
+                = f.input :body, label: false
+                = comment.created_at
+              .form-actions
+                = f.button :submit, '更新'
+                .pull-right
+                  = link_to '削除', user_post_comment_path(user, post, comment), remote: true, method: :delete, data: {confirm: '削除しますか？'}
 

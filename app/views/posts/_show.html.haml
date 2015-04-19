@@ -24,5 +24,5 @@
         = render 'comments/new', user: user, post: post
 
 :javascript
-  Academy.readPost("#{user.id}", "#{post.id}")
-  Academy.readAllComment("#{user.id}", "#{post.id}")
+  Academy.readPost("#{user.id}", "#{post.try :id}")
+  Academy.readAllComment("#{user.id}", "#{post.try :id}")

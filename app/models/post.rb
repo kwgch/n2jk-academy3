@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
   end
 
   def has_unread_comments?(user)
-    self.comments.unscoped.joins(:unreads).where(unreads: {user_id: user.id}).present?
+    self.comments.joins(:unreads).where(unreads: {user_id: user.id}).present?
   end
 
 end
